@@ -36,7 +36,7 @@ def rSum = 0
 
 
 matches.each {x->
-    def a = x[0].toString().length().toBigInteger()
+    def a = x[0].length().toBigInteger()
     def b = x[1].toString().toBigInteger()
     a = a - 1
     rSum = (a * b) + rSum
