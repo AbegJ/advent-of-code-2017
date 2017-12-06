@@ -13,4 +13,5 @@ matches.each {x->
 if(file.substring(0,1) == file.reverse().substring(0,1)){
     rSum = rSum + file.substring(0,1).toInteger()
 }
+
 println rSum

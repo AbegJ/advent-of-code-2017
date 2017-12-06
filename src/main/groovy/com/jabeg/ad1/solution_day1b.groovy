@@ -10,4 +10,5 @@ firstHalf.eachWithIndex { Object o, int i ->
     (o == secondHalf[i]) ? (result << o.toString().toInteger() * 2 ) : 0
 }
 
+
 println result.sum()
