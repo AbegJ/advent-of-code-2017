@@ -1,28 +1,26 @@
 def input = 361527
 
-def multCounter = 7 // Counter that keeps incrementing by 7's
-def mult = 7 // 7 multiplier
-def start = 1 // Center
-def index = 0
-def currR = 0// Current value in the spiral going directly down from 1
-def temp = 0
+def multiplier = 7 // 7 multiplier for the pattern
+def center = 1 // Center value of grid
+def fromCenter = 0 // Number of spaces down from the center
+def currentCount = 0// Current value in the spiral going directly down from 1
+def tempCount = 0 // Temporary count used to make the loop doesn't go past the input value
 
 // Find the number of steps it takes to get down to
 // value that is closest to the input
-while (temp <= input) {
+while (tempCount <= input) {
 
-    if (index == 0 && currR < input) {
-        currR = start + multCounter
+    if (fromCenter == 0 && currentCount < input) {
+        currentCount = center + multCounter
     } else {
-        temp = currR + multCounter + index
-        currR = (temp <= input) ? temp : currR
+        tempCount = currentCount + (multiplier * (fromCenter + 1)) + fromCenter
+        currentCount = (tempCount <= input) ? tempCount : currentCount
     }
-
-    index++
-    multCounter = multCounter + mult
+    fromCenter++
 }
 
-// find the number of steps from the closet number to get to the input
-def stepsFromCloset = input - currR
+// find the number of steps from the closet number to get to the input value
+def stepsFromCloset = input - currentCount
 
-print stepsFromCloset - (index - 1)
+// Print the shortest distance accounting for the center value of 1
+print stepsFromCloset - (fromCenter - 1)
